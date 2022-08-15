@@ -17,7 +17,7 @@ const config = {
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
   organizationName: "joseph-abell", // Usually your GitHub org/user name.
-  projectName: "josephabell", // Usually your repo name.
+  projectName: "joseph-abell.github.io", // Usually your repo name.
 
   // Even if you don't use internalization, you can use this field to set useful
   // metadata like html lang. For example, if your site is Chinese, you may want
@@ -36,7 +36,8 @@ const config = {
           sidebarPath: require.resolve("./sidebars.js"),
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
-          editUrl: "https://github.com/joseph-abell/josephabell",
+          editUrl:
+            "https://github.com/joseph-abell/joseph-abell.github.io/blob/main",
         },
         blog: false,
         theme: {
@@ -63,7 +64,7 @@ const config = {
             label: "Docs",
           },
           {
-            href: "https://github.com/joseph-abell/josephabell",
+            href: "https://github.com/joseph-abell/joseph-abell.github.io",
             label: "GitHub",
             position: "right",
           },
