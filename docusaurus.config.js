@@ -59,7 +59,7 @@ const config = {
             label: "CV",
           },
           {
-            to: "docs/javascript",
+            to: "docs",
             position: "left",
             label: "Docs",
           },
@@ -69,21 +69,6 @@ const config = {
             position: "right",
           },
         ],
-      },
-      footer: {
-        style: "dark",
-        links: [
-          {
-            title: "Docs",
-            items: [
-              {
-                label: "Javascript",
-                to: "/docs/javascript",
-              },
-            ],
-          },
-        ],
-        copyright: `Who needs a footer?`,
       },
       prism: {
         theme: lightCodeTheme,
