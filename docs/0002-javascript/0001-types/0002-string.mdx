@@ -1,6 +1,6 @@
 # String
 
-Strings are a sequence of characters. The most basic example of this is a sentence.
+Strings are a sequence of characters. A basic example of this is a sentence.
 
 ## Create
 
@@ -98,14 +98,21 @@ b; // "HelloWorld"
 
 ## To be damn well sure it is actually a string
 
-String, like all other basic values, get a toString method inherited from Object.
-It's not particularly helpful here, because all it does will return itself, but
-it's good to know that other stuff like numbers have a toString and will do what
-you expect. 
+Although toString is a method that is inherited from Object, it's better just to wrap
+the value in String directly, as it works with null and undefined.
+
+```JS
+const a = "Hello World";
+
+const b = String(a);
+```
+
+## Find how many characters are in a string
+
 
 ```JS
 const a = "Hello world";
-a.toString(); // Hello world
+a.length // It's a property, not a function, returns the character count
 ```
 
 ## Credits:
