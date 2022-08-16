@@ -8,17 +8,11 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
 const config = {
   title: "Joseph Abell",
   tagline: "This is how a developer remembers things",
-  url: "https://josephabell.co.uk",
+  url: "https://joedb.netlify.app",
   baseUrl: "/",
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
   favicon: "img/favicon.ico",
-
-  // GitHub pages deployment config.
-  // If you aren't using GitHub pages, you don't need these.
-  organizationName: "joseph-abell", // Usually your GitHub org/user name.
-  projectName: "joseph-abell.github.io", // Usually your repo name.
-  deploymentBranch: "gh-pages",
 
   // Even if you don't use internalization, you can use this field to set useful
   // metadata like html lang. For example, if your site is Chinese, you may want
@@ -62,7 +56,7 @@ const config = {
           {
             to: "docs",
             position: "left",
-            label: "Docs",
+            label: "JoeDB",
           },
           {
             href: "https://github.com/joseph-abell/joseph-abell.github.io",

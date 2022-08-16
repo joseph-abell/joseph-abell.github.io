@@ -1,1 +1,109 @@
 # String
+
+Strings are a sequence of characters. The most basic example of this is a sentence.
+
+## Create
+
+```JS
+const stringA = "Hello world";
+```
+
+## Read
+
+```JS
+const stringA = "Hello world";
+console.log(stringA); // "Hello world"
+```
+
+## Append
+
+```JS
+const stringA = "Hello world";
+const stringB = stringA.concat("!");
+
+stringA; // Hello world
+stringB; // Hello world!
+```
+
+or:
+
+```JS
+const stringA = "Hello world";
+const stringB = `${stringA}!`;
+
+stringA; // Hello world
+stringB; // Hello world!
+```
+
+## Delete
+
+Why would you want to? Leave the poor string alone!
+
+## Find a string within a string
+
+```JS
+const a = "Hello world";
+a.includes("world"); // true
+a.includes("World"); // false
+a.toLowerCase().includes("world"); // true
+```
+
+## Compare Strings
+
+```JS
+const a = "A";
+const b = "B";
+const c = "a";
+
+a.localeCompare(b); // a negative number, can't rely on it being -1, some browsers have a right to return any negative value
+a.localeCompare(c); // a positive number
+a.toLowerCase().localeCompare(c.toLowerCase()); // 0, as they are both the same string, with the same case.
+
+const d = "10";
+const e = "20";
+d.localeCompare(e, undefined, { numeric: true }); // A negative value
+e.localeCompare(d, undefined, { numeric: true }); // A positive value
+```
+
+## Remove spaces around a string, but keep spaces in the middle of the string
+
+```JS
+const a = "    Hello World!   ";
+const b = a.trim();
+a; // "    Hello World!   ";
+b; // "Hello World!";
+```
+
+## Find a substring and replace all instances of it in one go
+
+Do you care about Internet Explorer? No? Use this:
+
+```JS
+const a = "Hello World!";
+const b = a.replaceAll(" ", "");
+
+a; // Hello World!
+b; // HelloWorld!
+```
+
+You do care about IE? Ah well, try this:
+
+```JS
+const a = "Hello World";
+const b = a.split(' ').join('');
+
+a; // "Hello World"
+b; // "HelloWorld"
+```
+
+## To be damn well sure it is actually a string
+
+String, like all other basic values, get a toString method inherited from Object.
+It's not particularly helpful here, because all it does will return itself, but
+it's good to know that other stuff like numbers have a toString and will do what
+you expect. 
+
+```JS
+const a = "Hello world";
+a.toString(); // Hello world
+```

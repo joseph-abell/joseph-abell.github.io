@@ -20,10 +20,9 @@ function HomepageHeader() {
 
           <Link
             className="button button--secondary button--lg"
-            style={{ marginLeft: "20px" }}
             to="/docs"
           >
-            Docs
+            JoeDB
           </Link>
         </div>
       </div>

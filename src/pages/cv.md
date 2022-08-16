@@ -4,8 +4,8 @@ sidebar_position: 1
 
 # CV
 
-I'm Joseph Abell, a full stack Typescript developer with 11 years experience. I'm currently working at Isotoma,
-based in York, UK. I also develop websites for my wife's company, Abell Design, when time allows.
+I'm Joseph Abell, a full stack Typescript developer with 11 years experience. I'm currently working at Tesco Bank.
+I also develop websites for my wife's company, Abell Design, when time allows.
 
 ## Contact
 
