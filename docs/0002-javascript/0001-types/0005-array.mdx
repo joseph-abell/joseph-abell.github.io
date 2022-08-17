@@ -47,3 +47,55 @@ const b = a.concat(['e']);
 a; // ['a', 'b', 'c', 'd']
 b; // ['a', 'b', 'c', 'd', 'e']
 ```
+
+## Filter on the values in the array
+
+```JS
+const ages = [12, 23, 34, 45, 56]
+
+const adults = ages.filter(a => a >= 18);
+
+ages; // [12, 23, 34, 45, 56]
+adults; // [23, 34, 45, 56]
+```
+
+## Make a change to every value in an array
+
+```JS
+const a = [12, 23, 34, 45, 56]
+
+const b = a.map(i => i + 1);
+
+a; // [12, 23, 34, 45, 56]
+b; // [13, 24, 35, 46, 57]
+```
+
+## Make a change to some values in the array if they meet a condition
+
+```JS
+const a = [12, 23, 34, 45, 56];
+
+const lieAboutAge = a => a > 40 ? 40 : a;
+
+const b = a.map(lieAboutAge);
+
+a; // [12, 23, 34, 45, 56];
+b; // [12, 23, 34, 40, 40];
+```
+
+## Flatten multiple arrays into one
+
+```JS
+const a = [[1, 2, 3, 4], 5];
+
+const b = a.flat();
+
+a; // [[1, 2, 3, 4], 5]
+b; // [1, 2, 3, 4, 5]
+```
+
+## Credits
+
+[MDN][mdn]
+
+[mdn]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
