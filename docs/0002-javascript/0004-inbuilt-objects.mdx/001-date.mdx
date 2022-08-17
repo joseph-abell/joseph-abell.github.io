@@ -1,0 +1,67 @@
+# Date
+
+Date was created at the very early stages of JS, and was cribbed basically wholesale from Java's date implementation.
+The downside is that Java implementers realised super early that what they had made was utter horseshit, and wrote
+a replacement API. JS stuck with this implementation for about 20 years.
+
+Needless to say we are all waiting for the Temporal API. 
+
+## Get the current date
+
+```JS
+const a = new Date(); // returns the date object, but is shown in a YYYY-MM-DDTHH:MM:SS.msZ format to consoles.
+a.toString() // Gives us in a human readable format, including the timezone.
+a.getTime() // Gives a numeric representation of the date, in ms since 1st jan 1970
+
+const b = Date.now() // returnsa numeric value of the date, in milliseconds since 1st Jan 1970
+```
+
+The following examples were cribbed directly from MDN
+
+```JS
+const today = new Date()
+const birthday = new Date('December 17, 1995 03:24:00') // DISCOURAGED: may not work in all runtimes
+const birthday2 = new Date('1995-12-17T03:24:00')   // This is ISO8601-compliant and will work reliably
+const birthday3 = new Date(1995, 11, 17)            // the month is 0-indexed
+const birthday4 = new Date(1995, 11, 17, 3, 24, 0)
+const birthday5 = new Date(628021800000)            // passing epoch timestamp
+```
+
+## Get the day of the week
+
+```JS
+const a = new Date();
+a.getDay(); // returns 0 - 6, 0 being sunday, 1 monday and so on.
+```
+
+## Get the day of the month
+
+```JS
+const a = new Date();
+a.getMonth(); // returns the day of the month
+```
+
+## Get the month
+
+```JS
+const a = new Date();
+a.getMonth(); // returns 0 - 11, 0 being Jan and so on.
+```
+
+## Get the full year
+
+```JS
+const a = new Date();
+a.getFullYear(); // 4 digit year
+```
+
+## Get the date in a human readable format
+
+```JS
+const a new Date();
+a.toDateString(); // Wed Aug 17 2022
+a.toUTCString(); // Wed, 17 Aug 2022 21:58:23 GMT
+a.toLocaleString(); // 17/08/2022, 22:58:23
+a.toLocaleTimeString(); // 22:58:23
+```
+
