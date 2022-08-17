@@ -125,6 +125,16 @@ const { age, ...newCat } = cat;
 console.log(newCat);
 ```
 
+## Break down an object into it's parts
+
+```JS
+const aObj = { a: 'a', b: 'b', c: 'c', d: 'd' };
+const { a, b, ...rest } = aObj;
+
+a; // 'a';
+b; // 'b';
+rest; // {c: 'c', d: 'd'}
+
 ## Footguns
 
 ### Logging an object
@@ -150,16 +160,6 @@ a.b = 'f';
 You would expect a to show the value b to be 'b'. But the development console will show you the current
 value, not the one at the time of logging. To get around this, you'll need to stick the object in a
 JSON.stringify function, or just log the single value you care about.
-
-## Break down an object into it's parts
-
-```JS
-const aObj = { a: 'a', b: 'b', c: 'c', d: 'd' };
-const { a, b, ...rest } = aObj;
-
-a; // 'a';
-b; // 'b';
-rest; // {c: 'c', d: 'd'}
 ```
 
 ## Credits
