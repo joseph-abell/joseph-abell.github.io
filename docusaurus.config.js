@@ -49,14 +49,14 @@ const config = {
         title: "Joseph Abell",
         items: [
           {
-            to: "cv",
-            position: "left",
-            label: "CV",
-          },
-          {
             to: "docs",
             position: "left",
             label: "JoeDB",
+          },
+          {
+            to: "cv",
+            position: "left",
+            label: "CV",
           },
           {
             href: "https://github.com/joseph-abell/joseph-abell.github.io",

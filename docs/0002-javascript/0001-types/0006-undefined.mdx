@@ -1,0 +1,41 @@
+# Undefined
+
+Undefined is the default state for a variable, before you define a value.
+It is the value you need, when you are unintentionally setting
+a value to empty. It could be you set a variable to undefined just before 
+you set the value after an async call, or after some computation.
+
+Ultimately, I rarely set values explicitly to undefined. Usually the setting
+is implicit, if at all.
+
+## Create
+
+```JS
+const a; // undefined
+const b = undefined; // undefined
+```
+
+## check if a value is undefined
+
+```JS
+const a = undefined;
+
+if (a === undefined) a; // undefined
+```
+
+## Check if a value is defined
+
+```JS
+const a;
+
+a?.b; // will bomb out at the point of seeing a is undefined, but will not throw an error.
+
+const b = {
+  c: {
+    d: 'd'
+  }
+}
+
+b?.c?.d; // 'd'
+b?.e; // undefined
+```

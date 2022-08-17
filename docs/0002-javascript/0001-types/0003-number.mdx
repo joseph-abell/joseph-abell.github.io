@@ -1,1 +1,37 @@
 # Number
+
+Most programming languages have a lot of different ways to represent numbers. JS has just two.
+BigInt, which is for mindbogglingly large numbers, and Number, which handles everything else.
+
+Numbers can handle decimal places, and they can handle negative numbers. They are technically
+double precision, 64 bit binary format, if you care. If you really care, here are the [specs][specs].
+
+JS is not the most precise mathematical tool. In fact, in some cases, it's just plainly wrong.
+Check out what it gives you when you do 0.1 + 0.2. It is not the right answer.
+
+## Creation
+
+```JS
+const a = 123.0; // 123
+const b = 123; // 123
+const c = Number('123'); // 123
+const d = Number('not a number') // NaN
+const e = Number(undefined) // NaN
+const f = Number() // 0
+```
+
+## Comparison
+
+```JS
+const a = 123.0;
+const b = 123;
+
+a === b; // true
+```
+
+## Credits
+
+- [MDN][mdn]
+
+[specs]: https://en.wikipedia.org/wiki/Floating-point_arithmetic
+[mdn]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number

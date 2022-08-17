@@ -1,1 +1,27 @@
 # Boolean
+
+Yes or No. True or false.
+
+Falsy values are coverted to false:
+```JS
+Boolean() // false
+Boolean(0) // false
+Boolean(-0) // false
+Boolean(null) // false
+Boolean(false) // false
+Boolean(NaN) // false
+Boolean(undefined) // false
+Boolean('') // false
+```
+
+And everything else is converted to true:
+
+```JS
+Boolean([])  // true
+Boolean({}) // true
+Boolean(true) // true
+Boolean(() => {}) // true
+Boolean(1) // true
+Boolean(-1) // true
+Boolean('false') // true
+```

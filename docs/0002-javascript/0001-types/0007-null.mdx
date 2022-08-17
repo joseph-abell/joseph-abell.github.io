@@ -1,0 +1,29 @@
+# Null
+
+Null represents the absence of a value. I personally try to avoid null at all costs.
+It is a scourge, and is unneeded, and can easily cause type errors to the unsuspecting future developer.
+
+## Create
+
+```JS
+const a = null;
+```
+
+## Check if it is null;
+
+```JS
+const a = null;
+const b = undefined;
+
+a === null; // true
+!a; // true - this checks for falsy values, so other values can come up true also.
+
+b === null; // false
+b == null; // true
+```
+
+## Credits
+
+[MDN][mdn]
+
+[mdn]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/null

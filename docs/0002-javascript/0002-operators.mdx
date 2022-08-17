@@ -1,0 +1,105 @@
+# Operators
+
+Operators are mathematical symbols which can be used on values.
+Most of them are pretty explanatory if you have primary school mathematics.
+Some of these get really funky when mixing types. JS tries really
+hard to do what you have asked it to do, even if what you have asked is
+just flat out wrong.
+
+Floating point maths can be pretty broken in JS also.
+
+## Addition
+
+```JS
+const a = 1 + 2; // 3
+const b = 'Hello " + "World!" // Hello World!
+```
+
+## Subtraction, Multiplication and division
+
+```JS
+const a = 2 - 1; // 1
+const b = 2 * 2; // 4
+const c = 9 / 3; // 3
+const d = 10 / 3; // 3.3333333333333335 ----- excuse moi, wut
+```
+
+## Remainder
+
+```JS
+const a = 2 % 1; // 0
+const b = 3 % 2; // 1
+```
+
+## Exponent
+
+```JS
+2 ** 2 // 4
+2 ** 3 // 8
+2 ** 4 // 16
+```
+## Assignment
+
+```JS
+const a = 'a';
+```
+
+## Strict Equality - we don't mention the alternative here
+
+```JS
+1 === 2 // false
+```
+
+## Logical OR
+
+```JS
+const a = true; // true
+const b = !a; // false
+
+a !== b; // true
+```
+
+## Logical AND
+
+```JS
+const a = true;
+const b = true;
+const c = false;
+
+a && b; true
+a && c; false
+```
+
+## Less than, and Greater than
+```JS
+1 > 2; // false
+1 > 1; // false
+1 >= 1; // true
+1 > 0; // true
+
+1 < 2; // true
+1 < 1; // false
+1 <= 1; // true
+1 < 0; // false
+```
+
+## Nullish coalescing operator (whatever that means)
+
+Used to create default values when passed a falsy value
+
+```JS
+const a;
+const b = a ?? 'default' // 'default'
+const c = b ?? 'Another default' // 'default'
+```
+
+## Conditional return operator
+
+Very similar to the nullish coalescing operator, but it also returns the value
+
+```JS
+const a = (b) => b === 'hello' ? 'world' : '';
+
+a('hello'); // 'world'
+a('hey'); // ''
+```

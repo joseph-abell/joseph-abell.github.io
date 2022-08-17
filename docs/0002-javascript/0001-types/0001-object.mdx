@@ -151,9 +151,16 @@ You would expect a to show the value b to be 'b'. But the development console wi
 value, not the one at the time of logging. To get around this, you'll need to stick the object in a
 JSON.stringify function, or just log the single value you care about.
 
-## TODO
+## Break down an object into it's parts
 
-- Object destructuring
+```JS
+const aObj = { a: 'a', b: 'b', c: 'c', d: 'd' };
+const { a, b, ...rest } = aObj;
+
+a; // 'a';
+b; // 'b';
+rest; // {c: 'c', d: 'd'}
+```
 
 ## Credits
 

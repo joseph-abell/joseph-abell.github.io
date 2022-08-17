@@ -1,1 +1,49 @@
 # Array
+
+Arrays are lists of values. The values can be anything at all, and they don't need to match types. 
+
+## Create
+
+```JS
+const a = ['a', 0, () => ({})] // ['a', 0, () => ({})]
+const b = new Array('a', 'b', 'c') // ['a', 'b', 'c']
+```
+
+## Read
+
+```JS
+const a = ['a', 'b', 'c']
+a[0]; // 'a'
+
+a; // ['a', 'b', 'c'];
+a[arr.length - 1] // 'c';
+```
+
+## Update 1 item
+
+## Check how many items are in the array
+
+```JS
+const a = ['a', 'b', 'c'];
+a.length; // 3 - note it isn't a function it's just a parameter on arrays
+```
+
+## Add an item to an array
+
+```JS
+const a = ['a', 'b', 'c'];
+const b = [...a, b];
+
+a; // ['a', 'b', 'c'];
+b; // ['a', 'b', 'c', 'd'];
+```
+
+or:
+
+```JS
+const a = ['a', 'b', 'c', 'd'];
+const b = a.concat(['e']);
+
+a; // ['a', 'b', 'c', 'd']
+b; // ['a', 'b', 'c', 'd', 'e']
+```
