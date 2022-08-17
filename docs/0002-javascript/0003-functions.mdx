@@ -1,0 +1,173 @@
+# Functions
+
+A function is a set of statements that can optionally output a value. They are one of the basic building blocks of
+programming, and can act as a way to order your logic, and keep related thoughts together.
+
+Let's start with an old school function declaration:
+
+## Function Declaration
+
+```JS
+function double(num) {
+  return num + num;
+}
+```
+
+We can break this down into three parts:
+- The name of the function - double
+- Parameters being passed into the function - in this case it is `num`, but it can be as many or as little as we would like.
+- The JS statements that are the logic which will run when the function is called. In this case, 
+we only have one statement, `return num + num;`
+
+To actually use the function, you call it, like so:
+
+```JS
+double(2); // we should get 4 back
+```
+
+We call it by referencing the name and passing it the parameters it expects in curly brackets.
+
+Note that you can pass the function with no values, and Javascript absolutely does not care:
+
+```JS
+double(); // returns a special value called NaN
+```
+
+We recieve NaN, which stands for not a number, because if you try to multiple the idea of nothing
+with itself, it isn't technically a number.
+
+## Default values
+
+You could make this return zero when passed no parameter by rewriting the function as such:
+
+```JS
+function double(num = 0) {
+  return num + num;
+}
+```
+
+We have given the num parameter a default value. This means that when you don't pass in a value, we set the value to 0.
+0 plus 0 is 0, so we are good to go. Except: Our code is still a little bit naive. What do you think it will do if we pass it
+a string, rather than a number?
+
+```JS
+double("2");
+```
+
+It returns 22. Which although looks odd, but is because adding strings together to join them is perfectly valid.
+
+```JS
+double("yum"); // returns yumyum
+```
+
+So, if we want this to only work with numbers, you'll need some type checking:
+
+```JS
+function double(num = 0) {
+  const n = Number(num);
+
+  return n + n;
+}
+
+double("2"); // 4
+```
+
+We could shorten this a little bit more by moving the type checking into the return:
+
+```JS
+function double(num) {
+  return Number(num) + Number(num);
+}
+
+double("2"); // 4
+```
+
+Now when passed a string representation of a number, our code would do as we expect. If we were passed a word,
+we would get NaN returned. 
+
+Note that we had to duplicate the type check for both num uses, as we have removed the variable that did this
+for us. If we only did it once, we would get a bug:
+
+```JS
+function double(num) {
+  return Number(num) + num; // the second num could still be a string
+}
+
+double("2") // comes out at 22 again.
+```
+
+It returns as 22 because if you try to add a string and a number together, the number is turned into a string,
+and they are added together as two strings. This process of converting a value from one type to another is called
+type casting, and it happens all the damn time in JS if you don't be careful.
+
+## Arrow functions
+
+Here is the code as a regular old function declaration:
+
+```JS
+function double(num) {
+  return Number(num) + Number(num);
+}
+```
+
+Let's rewrite the code as an arrow function.
+
+```JS
+const double = (num) => {
+  return Number(num) + Number(num);
+}
+```
+
+There are some subtle differences between the function declaration style and arrow functions. Let's ignore them.
+We still have the three sections as before. We have the name of the function, which in this case is the variable name.
+We still have the parameters being passed into the function via the curly brackets. And we still have our statements the function
+will run, inside the moustache brackets. But, because this is a very simple, one line function with only one parameter,
+we can make it even simpler.
+
+Let's start with implicit returns.
+
+## Implicit returns
+
+In the code below, focus on the return statement inside the middle line of the function:
+
+```JS
+const double = (num) => {
+  return Number(num) + Number(num);
+}
+```
+
+Can you see we have the word return? Because this is a function with a single statement, 
+we can remove it entirely. Along with the moustache brackets, why not.
+
+```JS
+const double = (num) =>
+  Number(num) + Number(num);
+
+```
+
+You can even make this one line:
+
+```JS
+const double = (num) => Number(num) + Number(num);
+```
+
+Because there is only one statement, and we don't wrap it in moustache brackets, the arrow function runs that code and implicitly returns it's result.
+
+But wait, because we only have one parameter, and we are not adding types to the function like you might wish to in Typescript, you can make this even smaller:
+
+```JS
+const double = num => Number(num) + Number(num);
+```
+
+Each and every one of these functions will do the same thing. It's a matter of taste as to what style to use. Odds are though, you'll
+probably be sticking with arrow functions as much as possible, due to those previously mentioned subtle differences. If you want to
+know more, read [MDN's article on the word `this`][this], and good luck, it's a whole can of worms you probably don't need to know just yet.
+
+## Credits
+
+- [MDN's artivle on functions][mdn]
+- [MDN's article on `this`][this]
+
+[mdn]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions
+[this]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this
+
