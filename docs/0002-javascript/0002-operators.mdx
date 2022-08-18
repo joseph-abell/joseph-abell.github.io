@@ -88,9 +88,9 @@ a && c; false
 Used to create default values when passed a falsy value
 
 ```JS
-const a;
-const b = a ?? 'default' // 'default'
-const c = b ?? 'Another default' // 'default'
+const a; // undefined, which is a falsy value
+const b = a ?? 'default' // checks if a is a falsy value. it is, so it moves onto the next step, which is setting itself to 'default'
+const c = b ?? 'Another default' // 'default' is a truthy value, so c also returns 'default'
 ```
 
 ## Conditional return operator
