@@ -1,0 +1,168 @@
+# Typescript
+
+TS is a superset of JS. It is a way to add static type checking to JS. Unfortunately, it only provides type checking
+at the point of compile, not at runtime. If you want to have type checking on runtime, you'll need something like ts-node,
+which is a typescript environment for node. As a side note, just as you could type node to get a JS environment in the command
+line, you can run npx ts-node for a typescript environment for futzing around.
+
+## Everyday types
+
+### String
+
+```TS
+const s: string = 'foo';
+const t = 'bar'; // Takes string as the type implicitly
+```
+
+### Number
+
+```TS
+const a: number = 123;
+const b = 123;
+```
+
+### Boolean
+
+```TS
+const a: boolean = true;
+const b = false;
+```
+
+### Arrays
+
+TS really does like it if you only put one type inside an array - it finds it much harder to track types when you can have options.
+
+```TS
+const a: Array<number> = [1, 2, 3, 4, 5];
+const b: Array<string> = ['hi', 'hello', 'hey'];
+```
+
+### Any
+
+If you are having a truly troublesome typing session, any can be your friend. Usually, this is saved for the truly nightmare scenarios,
+otherwise why are you bothering using TS?
+
+```TS
+const a: Array<any> = [1, 'a', true]; 
+```
+
+### BigInt
+
+```TS
+const a: bigint = 100n;
+```
+
+### Symbol
+
+```TS
+const a: symbol = Symbol();
+```
+
+## Adding types to a function
+
+```TS
+const foo = (
+  bar: string, // typing the bar parameter
+  baz: string // typing the bax parameter
+): number => // typing the return value
+  ((foo + bar).length);
+
+// Written as one line
+const foo = (bar: string, baz: string): number => ((bar + baz).length);
+
+// The nice thing though is that implicit types can be applied here
+
+// no need for return type as it is obvious from the parameter types
+const foo = (bar: string, baz: string) => (foo + bar).length; 
+``` 
+
+## Union types
+
+Think of union types as a way to say a variable can be one of multiple types
+
+```TS
+const a = 10;
+const b: string | num = a < 5 ? 0 : 'foo';
+```
+
+Make sure that if you have a union type, do some more type checking on the
+runtime. You don't want to be doing a toLowerCase on a number type, as it
+does not exist and will cause an error.
+
+## Object types
+
+```TS
+type Vector = {x: string, y: string};
+
+const addVector = (vec1: Vector, vec2: Vector): Vector => ({
+  x: vec1.x + vec2.x,
+  y: vec1.y + vec2.y
+});
+```
+
+You can extend types by doing the following:
+
+```TS
+type Vector = { x: string, y: string };
+type Vector3 = Vector & { z: string };
+```
+
+
+## Interfaces
+
+Interfaces are very similar to object types above, expect that you can extend interfaces.
+
+```TS
+
+interface Vector {
+  x: string;
+  y: string;
+}
+
+interface Vector3 extends Vector {
+  z: string;
+}
+```
+
+You can add values to an interface on the fly, unlike object types. Not sure why you would, but you can:
+
+```TS
+interface Window {
+  title: string
+}
+
+interface Window {
+  ts: TypeScriptAPI
+}
+
+const src = 'const a = "Hello World"';
+window.ts.transpileModule(src, {});
+```
+
+## Type Assertions
+
+If you truly want to be naughty, you can tell typescript that a variable should actually be a specific type.
+
+```TS
+const a = 'hi' as string;
+const b = 'hi' as number; // NEVER lie to typescript. It's like you like bugs.
+const c: string = 'hi'; // It's always more preferable to define types up front. Assertions are a good way to introduce bugs.
+```
+
+## Optional values
+
+```TS
+let a?: string;
+a = 'hi';
+```
+
+## Enums
+
+As a general rule, don't use Enums as they actually change the JS code. We prefer it when TS can give us type safety without
+changing the code under the hood.
+
+## Credits
+
+[TS Docs][ts]
+
+[ts]: https://www.typescriptlang.org/docs/handbook/intro.html
