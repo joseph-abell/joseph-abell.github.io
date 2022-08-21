@@ -1,1 +1,53 @@
 # React
+
+React is diffing tool pretending to be a UI library. It creates snapshots of application state, compares them, and decides which
+parts of the ui needs to re-render. It is usually best practice to not get in React's way while doing so, because unless you have
+a stupidly complex element tree, or your elements are doing something very complex, it's usually quicker to allow the excess
+rerenders than checking manually.
+
+## JSX
+
+React introduced JSX. We can think of it as an extension to JS, that provides a HTML like syntax. It compiles down to an object that
+represents an element. A simplified version of what it compiles to is below:
+
+```JS
+const element = {
+  type: 'h1',
+  props: {
+    className: 'greeting',
+    children: 'Hello, world!'
+  }
+};
+```
+
+## Updating elements
+
+Most of the time, react apps will call the root component's render method once. The updates to the app will be driven by state updates.
+
+```JS
+
+import { useState, useEffect } from 'react';
+
+const Clock = () => {
+  const initialDate = new Date();
+  const [date, setDate] = useState(initialDate.toLocaleTimeString());
+
+  useEffect(() => {
+    const timeId = setInterval(() => {
+      const t = new Date();
+      setDate(t.toLocaleTimeString());
+    }, 1000);
+
+    return (() => {
+      clearInterval(timeId);
+    });
+  }, []);
+  
+  return (
+    <div>
+      <h1>Hello world!</h1>
+      <h2>It is {date}.</h2>
+    </div>
+  );
+}
+```
